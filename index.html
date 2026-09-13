@@ -38,25 +38,38 @@
       <div class="wrap">
         <h2>Contract Address</h2>
         <div class="ca-box" aria-live="polite">
-          <code class="ca-value" id="ca-value">CA drops at mint</code>
-          <button type="button" class="btn btn-ghost" id="copy-ca" disabled aria-disabled="true">Copy</button>
+          <code class="ca-value" id="ca-value">DNtw2HvsjempKoxfVHZ794EfXGK9NeRrdNY1buxB99Lp</code>
+          <button type="button" class="btn btn-ghost" id="copy-ca">Copy</button>
         </div>
+        <script>
+          document.getElementById('copy-ca').addEventListener('click', async () => {
+            const el = document.getElementById('ca-value');
+            const btn = document.getElementById('copy-ca');
+            try {
+              await navigator.clipboard.writeText(el.textContent.trim());
+              btn.textContent = 'Copied';
+              setTimeout(() => btn.textContent = 'Copy', 1500);
+            } catch (e) {
+              btn.textContent = 'Select & copy';
+            }
+          });
+        </script>
       </div>
     </section>
 
     <section class="section chart" id="chart">
       <div class="wrap">
         <h2>Chart / Pump</h2>
-        <p class="placeholder-line">Live at mint</p>
-        <a class="btn btn-disabled" aria-disabled="true" tabindex="-1">Pump.fun</a>
+        <p class="placeholder-line">Live on Pump.fun</p>
+        <a class="btn" href="https://pump.fun/coin/DNtw2HvsjempKoxfVHZ794EfXGK9NeRrdNY1buxB99Lp" target="_blank" rel="noopener noreferrer">Pump.fun chart</a>
       </div>
     </section>
 
     <section class="section buy" id="buy">
       <div class="wrap">
         <h2>Buy</h2>
-        <p class="placeholder-line">Buy on Pump.fun at mint</p>
-        <a class="btn btn-gold btn-disabled" aria-disabled="true" tabindex="-1">Buy on Pump.fun</a>
+        <p class="placeholder-line">Trade on Pump.fun</p>
+        <a class="btn btn-gold" href="https://pump.fun/coin/DNtw2HvsjempKoxfVHZ794EfXGK9NeRrdNY1buxB99Lp" target="_blank" rel="noopener noreferrer">Buy on Pump.fun</a>
       </div>
     </section>
 
